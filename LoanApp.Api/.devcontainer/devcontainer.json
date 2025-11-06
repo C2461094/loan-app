@@ -8,7 +8,9 @@
         "ms-azuretools.vscode-azureresourcegroups",
         "ms-azuretools.vscode-azuretools",
         "ms-vscode-remote.remote-containers",
-        "ms-azuretools.vscode-azurefunctions"
+        "ms-azuretools.vscode-azurefunctions",
+        "ms-azuretools.vscode-docker",
+        "esbenp.prettier-vscode"
       ]
     }
   }
