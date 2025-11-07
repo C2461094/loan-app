@@ -1,17 +1,37 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
 {
-  "name": "LoanApp Api Dev Container",
-  "image": "ghcr.io/tpdavison/devopd-lab:latest",
-  "features": {},
+  "name": "Loan App Dev",
+  // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm",
+
+  // Features to add to the dev container. More info: https://containers.dev/features.
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:1": {},
+    "ghcr.io/devcontainers/features/azure-cli:1": {}
+  },
+
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  // "forwardPorts": [],
+
+  // Use 'postCreateCommand' to run commands after the container is created.
+  // "postCreateCommand": "yarn install",
+
+  // Configure tool-specific properties.
   "customizations": {
     "vscode": {
       "extensions": [
+        "ms-azuretools.vscode-azurefunctions",
         "ms-azuretools.vscode-azureresourcegroups",
         "ms-azuretools.vscode-azuretools",
         "ms-vscode-remote.remote-containers",
-        "ms-azuretools.vscode-azurefunctions",
-        "ms-azuretools.vscode-docker",
         "esbenp.prettier-vscode"
       ]
     }
-  }
+  },
+
+  "postCreateCommand": "npm install @azure/cosmos @azure/identity"
 }
+
+// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+// "remoteUser": "root"
