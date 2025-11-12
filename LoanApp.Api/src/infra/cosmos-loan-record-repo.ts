@@ -1,8 +1,8 @@
 //import dependencies
-import { CosmosClient, Container } from "@azure/cosmos";
-import { LoanRecord } from "../domain/loan-record";
-import { LoanTRecordRepo } from "../domain/loan-record-repo";
-import { parseLoanStatus } from "../domain/loan-status";
+import { CosmosClient, Container } from '@azure/cosmos';
+import { LoanRecord } from '../domain/loan-record';
+import { LoanTRecordRepo } from '../domain/loan-record-repo';
+import { parseLoanStatus } from '../domain/loan-status';
 
 //internal DTO shape for Cosmos DB persistence
 type LoanRecordDTO = {
@@ -17,7 +17,7 @@ type LoanRecordDTO = {
 };
 
 //define the config options for Cosmos DB
-type Options = {
+export type Options = {
   key: string;
   endpoint: string;
   databaseId: string;
@@ -29,6 +29,11 @@ export class CosmosLoanRecordRepo implements LoanTRecordRepo {
   private container: Container;
 
   constructor(options: Options) {
+    console.debug(
+      options,
+      `*******" ENDPOINT: ${options.endpoint} -- KEY: ${options.key}`
+    );
+
     const client = new CosmosClient({
       endpoint: options.endpoint,
       key: options.key,

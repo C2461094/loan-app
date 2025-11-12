@@ -1,0 +1,16 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug seed.ts",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/src/seed/seed.ts",
+      "preLaunchTask": "tsc: build",
+      "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+      "runtimeArgs": ["-r", "ts-node/register"],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen"
+    }
+  ]
+}
